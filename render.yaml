@@ -3,7 +3,7 @@ services:
     name: langgraph-finance-sentiment
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python gloomy_dreams/main.py
+    startCommand: python gloomy-dreams/gloomy_dreams/main.py
     envVars:
       - key: NEWSAPI_KEY
         sync: false
