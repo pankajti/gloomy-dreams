@@ -13,6 +13,7 @@ class FinanceState(TypedDict):
 
 def retrieve_node(state: dict) -> dict:
     articles = get_news_articles(state["ticker"])
+
     return {**state, "articles": articles}
 
 def summarize_node(state: dict) -> dict:

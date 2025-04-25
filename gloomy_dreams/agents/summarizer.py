@@ -1,9 +1,9 @@
 from langchain_ollama.chat_models import ChatOllama
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 
-# Initialize the model
-llm = ChatOllama(model="llama3.1")
+from gloomy_dreams.utls.llm import get_llm
+llm = get_llm()
+
 
 # Template for summarization
 template = """
@@ -20,6 +20,8 @@ chain = prompt | llm
 
 
 def summarize_article(text: str) -> str:
+    print("summarizing")
+
     result = chain.invoke({"text": text})
 
     return result.content.strip()
