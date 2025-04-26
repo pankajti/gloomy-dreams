@@ -1,18 +1,35 @@
-# 🧠 LangGraph Finance Sentiment
+# Gloomy Dreams: Financial News Sentiment Analyzer
 
-An agentic AI application that retrieves financial news, summarizes each article, classifies sentiment using LLMs, and presents overall market mood using a modular LangGraph workflow and NiceGUI frontend.
+Gloomy Dreams is an AI-powered web application that analyzes financial news sentiment using agentic AI systems built with LangGraph, Together API, OpenAI, and Ollama.
 
----
+🔗 **Live Demo**: [https://gloomy-dreams.onrender.com/](https://gloomy-dreams.onrender.com/)
 
-## 🚀 Features
+## Features
 
-- Retrieve top financial headlines (NewsAPI)
-- Summarize using LLM (OpenAI, Claude, etc.)
-- Classify sentiment per article
-- Aggregate overall market mood
-- NiceGUI interface with real-time results
+- Analyze stock tickers in real-time
+- Fullstack app using Plotly Dash and Bootstrap
+- Support for multiple LLM backends (Together, OpenAI, Local Llama3)
+- Graphviz workflow diagram rendering
+- Deployed on Render with minimal configuration
 
----
+## Technologies Used
 
-## 🧩 Architecture
+- Dash
+- LangChain
+- Together API
+- Ollama
+- OpenAI GPT-3.5
+- Bootstrap 5
+- Render Hosting
 
+## Folder Structure
+
+- `/gloomy_dreams/` - Main app code
+- `/assets/` - Static files (e.g., graph_structure.png)
+- `/config/` - .env settings
+
+## How to Run Locally
+
+```bash
+pip install -r requirements.txt
+python app.py
