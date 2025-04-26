@@ -1,5 +1,5 @@
 from typing import TypedDict, List
-from langgraph.graph import StateGraph
+from langgraph.graph import StateGraph,START,END
 
 from gloomy_dreams.agents.retriever import get_news_articles
 from gloomy_dreams.agents.summarizer import summarize_article
@@ -30,12 +30,14 @@ def create_finance_graph():
 
     # Add nodes explicitly
     builder.add_node("Retrieve News", retrieve_node)
-    builder.add_node("Summarize", summarize_node)
-    builder.add_node("Sentiment", sentiment_node)
+    builder.add_node("Summarize News Content", summarize_node)
+    builder.add_node("Calculate Sentiment", sentiment_node)
 
     # Set the graph structure
-    builder.set_entry_point("Retrieve News")
-    builder.add_edge("Retrieve News", "Summarize")
-    builder.add_edge("Summarize", "Sentiment")
+    builder.add_edge(START,"Retrieve News")
+    builder.add_edge("Retrieve News", "Summarize News Content")
+    builder.add_edge("Summarize News Content", "Calculate Sentiment")
+    builder.add_edge("Calculate Sentiment",END)
+
 
     return builder.compile()

@@ -21,7 +21,9 @@ chain = prompt | llm
 
 def summarize_article(text: str) -> str:
     print("summarizing")
-
     result = chain.invoke({"text": text})
-
-    return result.content.strip()
+    if isinstance(result, str):
+        ai_result = result
+    else:
+        ai_result = result.content
+    return ai_result.strip()
