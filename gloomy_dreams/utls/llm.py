@@ -1,7 +1,7 @@
 from langchain_ollama.chat_models import ChatOllama
 from langchain_together import Together
 import os
-from langchain_openai import OpenAI
+from langchain_openai.chat_models import ChatOpenAI
 
 from dotenv import load_dotenv
 
@@ -15,13 +15,13 @@ openai_model_name = "gpt-3.5-turbo"
 
 
 models = {'together':Together(model=together_model_name), 'llama3_local':ChatOllama(model=llama_model_name),
-          'openai':OpenAI(model_name=openai_model_name)}
+          'openai':ChatOpenAI(model_name=openai_model_name)}
 
 
 def get_llm(model_name: str = "mistral"):
     """Returns a Together model if available, else falls back to Ollama local model."""
     try:
-        llm_provider = os.getenv("LLM_PROVIDER", "together").lower()
+        llm_provider = os.getenv("LLM_PROVIDER", "openai").lower()
 
         model = models.get(llm_provider,None)
 
